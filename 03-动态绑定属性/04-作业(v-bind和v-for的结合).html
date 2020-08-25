@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style type="text/css">
+		.red{
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app">
+			<li v-for="(item , index) in wife"
+					:class="{red: currentIndex === index}"
+					v-on:click="changRed(index,item)">{{index}} {{item}}</li>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				wife: ['雪之下', '加藤惠', '艾米莉亚'],
+				currentIndex: 0
+			},
+			methods: {
+				changRed: function (index,item) {
+					this.currentIndex = index;
+					console.log(index +","+ item)
+				}
+			}
+		});
+	</script>
+</body>
+
+</html>

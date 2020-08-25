@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+    </head>
+
+    <body>
+        <div id="did">
+            <input type="button" value="v-on指令" v-on:click="doIt">
+            <input type="button" value="v-on指令" @click="doNot">
+            <input type="button" value="v-on指令双击" v-on:dblclick="doNot">
+            <h2 @click="changTalk">{{talk}}</h2>
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            var app = new Vue({
+                el:"#did",
+                data:{
+                    talk:"给爷"
+                },
+                methods: {
+                    doIt:function(){
+                        alert("hello,there");
+                    },
+                    doNot:function(){
+                        alert("nothere");
+                    },
+                    changTalk:function(){
+                        this.talk += "爬"
+                    }
+                },
+            })
+        </script>
+    </body>
+
+</html>

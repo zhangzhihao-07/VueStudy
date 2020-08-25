@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="did">
+			<h2>{{message}}</h2>
+			<!-- 让信息原封不动的显示 -->
+			<h2 v-pre>{{message}}</h2>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			var app = new Vue({
+				el: "#did",
+				data: {
+					message: "测试信息"
+				}
+			})
+		</script>
+	</body>
+
+</html>

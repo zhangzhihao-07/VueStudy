@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="did">
+			<h2 v-text="message"></h2>
+			<!-- 将字符串转换成html元素 -->
+			<h2 v-html="message"></h2>
+			<h2>ceshi{{message}}</h2>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			var app = new Vue({
+				el: "#did",
+				data: {
+					message: "<a href='https://www.bilibili.com/'>一个链接</a>"
+				}
+			})
+		</script>
+	</body>
+
+</html>

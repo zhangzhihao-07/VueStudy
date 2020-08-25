@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<div id="app">
+		<h2 :style="{fontSize:'40px'}">{{message}}</h2>
+		<h2 :style="{fontSize: fontSize + 'px', backgroundColor: fontColr}">{{message}}</h2>
+		<h2 :style="get()">{{message}}</h2>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: 'hello',
+				fontSize: 40,
+				fontColr: 'red'
+			},
+			methods: {
+				get:function () {
+					return {fontSize: this.fontSize + 'px', backgroundColor: this.fontColr}
+				}
+			}
+		});
+	</script>
+</body>
+
+</html>
