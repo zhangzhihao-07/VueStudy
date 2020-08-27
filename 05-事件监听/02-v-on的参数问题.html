@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 事件调用的方法没有参数 -->
+    <button @click="btnClick()">按钮1</button>
+    <button @click="btnClick">按钮1-1</button>
+
+    <!-- 在事件定义时，写函数省略了小括号，但是方法本身需要一个参数,这个时候vue会把浏览器默认生成的event的事件对象传过去 -->
+    <button @click="ctnClick('hello')">按钮2</button>
+    <button @click="ctnClick">按钮2-1</button>
+
+    <!-- 在方法定义时，我们需要event对象，同时又需要其他参数 -->
+    <button @click="ctnClick">按钮3</button>
+    <button @click="ctnClick('hello', $event)">按钮3-1</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {},
+      methods: {
+        btnClick() {
+          console.log('btnClick');
+        },
+        ctnClick(abc) {
+          console.log(abc);
+        },
+        dtnClick(abc, event) {
+          console.log('dtnClick');
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

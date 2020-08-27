@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- .stop停止冒泡 -->
+    <div @click.stop="dclick">
+      这是div
+      <button @click="bclick">按钮</button>
+    </div>
+
+    <!-- .prevent禁止默认事件 -->
+    <!-- 例如禁止表单的默认提交 -->
+    <form action="baidu">
+      <input type="submit" value="提交" @click.prevent="sub">
+    </form>
+
+    <!-- 监听某个键盘的按键点击 -->
+    <input type="text" @keyup="key">
+
+    <!-- 回调函数之调用一次 -->
+    <button @click.once="bclick">按钮2</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {},
+      methods: {
+        dclick() {
+          console.log('dclick');
+        },
+        bclick() {
+          console.log('bclick');
+        },
+        sub() {
+          console.log('禁止默认事件，禁止表单自动提交');
+        },
+        key() {
+          console.log('key');
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
