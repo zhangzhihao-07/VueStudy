@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="item in info">{{item}}</li>
+    </ul>
+    <ul>
+      <li v-for="(item,key) in info">{{key}}-{{item}}</li>
+    </ul>
+    <ul>
+            <!-- 对象值-对象名-对象下标 -->
+      <li v-for="(item,key,index) in info">{{index}}-{{key}}-{{item}}</li>
+    </ul>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        info: {
+          name: 'hui',
+          age: 18,
+          sex: 'girl'
+        }
+      },
+      methods: {}
+    });
+  </script>
+</body>
+
+</html>

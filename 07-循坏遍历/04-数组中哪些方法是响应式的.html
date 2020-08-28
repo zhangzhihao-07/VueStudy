@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="item in letters">{{item}}</li>
+    </ul>
+    <button @click="bclick">按钮</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        letters: ['A','B','C','D','E','F']
+      },
+      methods: {
+        bclick() {
+          // push方法,从数组最后追加元素   响应式
+          // this.letters.push("G");
+
+          // pop方法,从数组最后删除元素    响应式      
+          // this.letters.pop();
+
+          // shift方法,从数组最前删除元素  响应式
+          // this.letters.shift()
+
+          //unshift方法,从数组最前添加元素 响应式
+          // this.letters.unshift('1')
+
+          //splice 删除元素/替换元素/插入元素
+          // 删除元素,第一个参数从什么位置开始,1为起点,写几表示就那个位置开始,
+          //   第二个参数传入你要删除几个元素,没有传就删除后面所有元素
+          //替换元素,第二个参数表示我们要替换几个元素,后面是用于替换前面的元素
+          //插入元素,第二个参数,传入0,后面跟上要插入的元素
+          
+          // this.letters.splice(2,0,'111','222')
+
+          
+          // this.letters.sort();
+
+          // reverse反转数组元素
+          // this.letters.reverse()
+
+          // 通过索引修改数组的元素      非响应式
+          // this.letters[0] = 1;
+
+          //vue的set方法  ,要修改的对象, 索引值从0开始, 修改后的值
+          Vue.set(this.letters,0,'aaaaaa')
+
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

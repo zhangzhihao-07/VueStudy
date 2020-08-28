@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="item in names">{{item}}</li>
+    </ul>
+    <ul>
+      <li v-for="(item,index) in names">{{index+1}}.{{item}}</li>
+    </ul>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        names: ['安纳金-天行者','欧比旺-肯诺比','卢克-天行者','梅斯-温杜','master尤达']
+
+      },
+      methods: {
+      }
+    });
+  </script>
+</body>
+
+</html>

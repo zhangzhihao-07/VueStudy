@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-if是把元素从dom中删除，切换再创建回来，对性能要求更大 -->
+    <h2 v-if="isShow">{{message}}</h2>
+
+    <!-- v-show是更改元素的display属性，没有把元素从dom中删除 -->
+    <h2 v-show="isShow">{{message1}}</h2>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'aaa',
+        message1: 'bbb',
+        isShow: true
+      },
+      methods: {}
+    });
+  </script>
+</body>
+
+</html>
