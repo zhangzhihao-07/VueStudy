@@ -47,11 +47,27 @@ const app = new Vue({
   },
   computed: {
     sumPrice() {
+      //普通的for循坏
+      // let sum = 0;
+      // for(let i=0; i<this.list.length; i++){
+      //   sum += this.list[i].price * this.list[i].count;
+      // }
+      // return sum;
+
+      // 第二种方式
+      // let sum = 0;
+      // for(let i in this.list) {
+      //   sum += this.list[i].price * this.list[i].count;
+      // }
+      // return sum;
+
+      //第三种方式
       let sum = 0;
-      for(let i=0; i<this.list.length; i++){
-        sum += this.list[i].price * this.list[i].count;
+      for(let i of this.list) {
+        sum += i.price * i.count;
       }
       return sum;
+
     }
     
   },

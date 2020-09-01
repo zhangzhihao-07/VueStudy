@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <cpn :names = names :color="color"></cpn>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <ul>
+        <li v-for="item in names">{{item}}</li>
+      </ul>
+      <h2>{{color}}</h2>
+    </div>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+
+    // 父传子
+    const cpn = {
+      template: '#cpn',
+      // props: ['names']
+      // props: {
+      //   names: Array,
+      //   color: String
+      // }
+      props:{
+        names:Array,
+        color: {
+          type:String,
+          default: 'red',
+        }
+      }
+    }
+    var app = new Vue({
+      el: '#app',
+      data: {
+        names: ['安纳金-天行者','欧比旺-肯诺比','卢克-天行者','梅斯-温杜','master尤达'],
+        color: 'blue'
+      },
+      methods: {},
+      components: {
+        cpn
+      }
+    });
+  </script>
+</body>
+
+</html>

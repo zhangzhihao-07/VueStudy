@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 3.使用组件 -->
+    <myddd></myddd>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+
+    // 1.创建第一个组件构造器 字组件
+    const cpn1 = Vue.extend({
+      template: `
+        <div>
+          <h2>这是标题</h2>
+          <p>第一行内容</p>
+          <p>第二行内容</p>
+        </div>`
+    })
+
+    // 2.创建第二个组件构造器 父组件
+    const cpn2 = Vue.extend({
+      template: `
+        <div>
+          <h2>这是标题2</h2>
+          <p>第一行内容</p>
+          <p>第二行内容</p>
+          <cpn1></cpn1>
+        </div>`,
+        //在父组件里注册子组件,把子组件包含进来
+        components:{
+				cpn1:cpn1
+				}
+    })
+
+    // root 根组件
+    var app = new Vue({
+      el: '#app',
+      data: {},
+      methods: {},
+      components: {
+        myddd: cpn2 
+      }
+    });
+  </script>
+</body>
+
+</html>
