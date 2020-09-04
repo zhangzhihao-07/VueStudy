@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <cpn>
+      <template slot-scope="slot">
+        <span v-for="item in slot.data">{{item}}---</span>
+      </template>
+    </cpn>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <slot :data="plang">
+        <!-- 默认值 -->
+        <!-- <ul>
+          <li v-for="item in plang">{{item}}</li>
+        </ul> -->
+      </slot>
+    </div>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {},
+      methods: {},
+      components: {
+        cpn: {
+          template: '#cpn',
+          data() {
+            return {
+              plang: ['JavaScript','C++','Java','Python','Go']
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
